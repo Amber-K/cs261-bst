@@ -107,5 +107,18 @@ class TestTree(unittest.TestCase):
 		bst.insert(child_3)
 		self.assertEqual(child_2, bst.find(10))
 
+	def test_find_largest_leaf_node(self):
+		"""
+		The largest leaf node can be found.
+		"""
+		bst = BinarySearchTree(100)
+		child_1 = BinarySearchTree(110)
+		child_2 = BinarySearchTree(120)
+		child_3 = BinarySearchTree(50)
+		bst.insert(child_1)
+		bst.insert(child_2)
+		bst.insert(child_3)
+		self.assertEqual(child_2, bst.find(120))
+
 if __name__ == '__main__':
 	unittest.main()

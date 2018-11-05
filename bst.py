@@ -22,5 +22,7 @@ class BinarySearchTree():
 	def find(self, value):
 		if value == self.value:
 			return self
-		else:
+		elif value < self.value:
 			return self.left.find(value)
+		else:
+			return self.right.find(value)
