@@ -4,6 +4,7 @@ class BinarySearchTree():
 		self.value = value
 		self.left = None
 		self.right = None
+		self.prev = None
 
 	def insert(self, insertee):
 		if insertee.value <= self.value:
