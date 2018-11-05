@@ -94,5 +94,18 @@ class TestTree(unittest.TestCase):
 		bst = BinarySearchTree(100)
 		self.assertEqual(bst, bst.find(100))
 
+	def test_find_smallest_leaf_node(self):
+		"""
+		The smallest leaf node can be found.
+		"""
+		bst = BinarySearchTree(100)
+		child_1 = BinarySearchTree(20)
+		child_2 = BinarySearchTree(10)
+		child_3 = BinarySearchTree(150)
+		bst.insert(child_1)
+		bst.insert(child_2)
+		bst.insert(child_3)
+		self.assertEqual(child_2, bst.find(10))
+
 if __name__ == '__main__':
 	unittest.main()
