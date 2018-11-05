@@ -61,7 +61,28 @@ class BinarySearchTree():
 		return values
 
 	def delete(self, target_node):
-		if target_node.value < target_node.parent.value:
-			target_node.parent.left = None
+		if target_node.left == None and target_node.right == None:
+			if target_node.value < target_node.parent.value:
+				target_node.parent.left = None
+			else:
+				target_node.parent.right = None
+
+		elif target_node.parent != None:
+			if target_node.value <= target_node.parent.value:
+				if target_node.left != None and target_node.right == None:
+					target_node.left.parent = target_node.parent
+					target_node.parent.left = target_node.left
+				elif target_node.left == None and target_node.right != None:
+					target_node.right.parent = target_node.parent
+					target_node.parent.left = target_node.right
+			else:
+				if target_node.left != None and target_node.right == None:
+					target_node.left.parent = target_node.parent
+					target_node.parent.right = target_node.left
+				elif target_node.left == None and target_node.right != None:
+					target_node.right.parent = target_node.parent
+					target_node.parent.right = target_node.right
+
 		else:
-			target_node.parent.right = None
+			if (target_node.left != None and target_node.right == None) or (target_node.left == None and target_node.right != None):
+				target_node.parent = None
