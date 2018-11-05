@@ -56,5 +56,32 @@ class TestTree(unittest.TestCase):
 		bst.insert(child)
 		self.assertEqual(child, bst.right)
 
+	def test_insert_many_small_large_and_equal_values_in_correct_locations(self):
+		"""
+		Many inserted nodes all end up in correct locations.
+		"""
+		bst = BinarySearchTree(100)
+		small_child_1 = BinarySearchTree(20)
+		small_child_2 = BinarySearchTree(30)
+		small_child_3 = BinarySearchTree(10)
+		large_child_1 = BinarySearchTree(110)
+		large_child_2 = BinarySearchTree(130)
+		large_child_3 = BinarySearchTree(120)
+		equal_child = BinarySearchTree(100)
+		bst.insert(small_child_1)
+		bst.insert(small_child_2)
+		bst.insert(small_child_3)
+		bst.insert(large_child_1)
+		bst.insert(large_child_2)
+		bst.insert(large_child_3)
+		bst.insert(equal_child)
+		self.assertEqual(small_child_1, bst.left)
+		self.assertEqual(small_child_2, small_child_1.right)
+		self.assertEqual(small_child_3, small_child_1.left)
+		self.assertEqual(large_child_1, bst.right)
+		self.assertEqual(large_child_2, large_child_1.right)
+		self.assertEqual(large_child_3, large_child_2.left)
+		self.assertEqual(equal_child, small_child_2.right)
+
 if __name__ == '__main__':
 	unittest.main()

@@ -6,5 +6,14 @@ class BinarySearchTree():
 		self.right = None
 
 	def insert(self, insertee):
-		self.left = insertee
-		self.right = insertee
+		if insertee.value <= self.value:
+			if self.left == None:
+				self.left = insertee
+				return
+			else:
+				self.left.insert(insertee)
+		if insertee.value > self.value:
+			if self.right == None:
+				self.right = insertee
+			else:
+				self.right.insert(insertee)
