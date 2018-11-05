@@ -18,5 +18,13 @@ class TestTree(unittest.TestCase):
 		except NameError:
 			self.fail("Could not instantiate BinarySearchTree.")
 
+	def test_instantiation_with_value(self):
+		"""
+		A BST can be instantiated with a value.
+		"""
+		fake_value = "FAKE"
+		bst = BinarySearchTree(fake_value)
+		self.assertEqual(fake_value, bst.value)
+
 if __name__ == '__main__':
 	unittest.main()
