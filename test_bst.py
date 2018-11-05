@@ -47,5 +47,14 @@ class TestTree(unittest.TestCase):
 		bst.insert(child)
 		self.assertEqual(child, bst.left)
 
+	def test_insert_larger_values_as_right(self):
+		"""
+		Child nodes larger than the root are inserted on the right.
+		"""
+		bst = BinarySearchTree(100)
+		child = BinarySearchTree(150)
+		bst.insert(child)
+		self.assertEqual(child, bst.right)
+
 if __name__ == '__main__':
 	unittest.main()

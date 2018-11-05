@@ -7,3 +7,4 @@ class BinarySearchTree():
 
 	def insert(self, insertee):
 		self.left = insertee
+		self.right = insertee
