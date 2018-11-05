@@ -36,10 +36,18 @@ class BinarySearchTree():
 			else:
 				return self.right.find(value)
 
-	def traverse(self, order, values = []):
+	def traverse_pre_order(self, values = []):
 		values.append(self.value)
 		if self.left != None:
-			values = self.left.traverse(values)
+			values = self.left.traverse_pre_order(values)
 		if self.right != None:
-			values = self.right.traverse(values)
+			values = self.right.traverse_pre_order(values)
+		return values
+
+	def traverse_in_order(self, values = []):
+		if self.left != None:
+			values = self.left.traverse_in_order(values)
+		values.append(self.value)
+		if self.right != None:
+			values = self.right.traverse_in_order(values)
 		return values
