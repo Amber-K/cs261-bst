@@ -134,6 +134,14 @@ class TestTree(unittest.TestCase):
 		bst.insert(child_3)
 		bst.insert(child_4)
 		self.assertEqual(child_3, bst.find(110))
-		
+
+	def test_find_value_without_node(self):
+		"""
+		None is returned when no node has the correct value.
+		"""
+		bst = BinarySearchTree(100)
+		self.assertEqual(None, bst.find(50))
+		self.assertEqual(None, bst.find(150))
+
 if __name__ == '__main__':
 	unittest.main()

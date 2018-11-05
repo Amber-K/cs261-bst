@@ -23,6 +23,12 @@ class BinarySearchTree():
 		if value == self.value:
 			return self
 		elif value < self.value:
-			return self.left.find(value)
+			if self.left == None:
+				return None
+			else:
+				return self.left.find(value)
 		else:
-			return self.right.find(value)
+			if self.right == None:
+				return None
+			else:
+				return self.right.find(value)
