@@ -159,5 +159,28 @@ class TestTree(unittest.TestCase):
 		self.assertEqual(None, bst.find(50))
 		self.assertEqual(None, bst.find(150))
 
+	"""
+	Traversal
+	"""
+
+	def test_pre_order_traversal(self):
+		"""
+		Pre-order traversals return lists of BST values in pre-order.
+		"""
+		bst = BinarySearchTree(100)
+		small_child_1 = BinarySearchTree(20)
+		small_child_2 = BinarySearchTree(30)
+		small_child_3 = BinarySearchTree(10)
+		large_child_1 = BinarySearchTree(110)
+		large_child_2 = BinarySearchTree(130)
+		large_child_3 = BinarySearchTree(120)
+		bst.insert(small_child_1)
+		bst.insert(small_child_2)
+		bst.insert(small_child_3)
+		bst.insert(large_child_1)
+		bst.insert(large_child_2)
+		bst.insert(large_child_3)
+		self.assertEqual([100, 20, 10, 30, 110, 130, 120], bst.traverse('pre-order'))
+
 if __name__ == '__main__':
 	unittest.main()

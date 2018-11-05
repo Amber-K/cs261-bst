@@ -35,3 +35,11 @@ class BinarySearchTree():
 				return None
 			else:
 				return self.right.find(value)
+
+	def traverse(self, order, values = []):
+		values.append(self.value)
+		if self.left != None:
+			values = self.left.traverse(values)
+		if self.right != None:
+			values = self.right.traverse(values)
+		return values
