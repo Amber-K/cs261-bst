@@ -201,5 +201,24 @@ class TestTree(unittest.TestCase):
 		bst.insert(large_child_3)
 		self.assertEqual([10, 20, 30, 100, 110, 120, 130], bst.traverse_in_order())
 
+	def test_post_order_traversal(self):
+		"""
+		Post-order traversals return lists of BST values in post-order.
+		"""
+		bst = BinarySearchTree(100)
+		small_child_1 = BinarySearchTree(20)
+		small_child_2 = BinarySearchTree(30)
+		small_child_3 = BinarySearchTree(10)
+		large_child_1 = BinarySearchTree(110)
+		large_child_2 = BinarySearchTree(130)
+		large_child_3 = BinarySearchTree(120)
+		bst.insert(small_child_1)
+		bst.insert(small_child_2)
+		bst.insert(small_child_3)
+		bst.insert(large_child_1)
+		bst.insert(large_child_2)
+		bst.insert(large_child_3)
+		self.assertEqual([10, 30, 20, 120, 130, 110, 100], bst.traverse_post_order())
+
 if __name__ == '__main__':
 	unittest.main()

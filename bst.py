@@ -51,3 +51,11 @@ class BinarySearchTree():
 		if self.right != None:
 			values = self.right.traverse_in_order(values)
 		return values
+
+	def traverse_post_order(self, values = []):
+		if self.left != None:
+			values = self.left.traverse_post_order(values)
+		if self.right != None:
+			values = self.right.traverse_post_order(values)
+		values.append(self.value)
+		return values
