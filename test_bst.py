@@ -26,14 +26,14 @@ class TestTree(unittest.TestCase):
 		bst = BinarySearchTree(fake_value)
 		self.assertEqual(fake_value, bst.value)
 
-	def test_has_left_right_and_prev_initially_none(self):
+	def test_has_left_right_and_parent_initially_none(self):
 		"""
 		BST has left, right, and prev values that start out as None.
 		"""
 		bst = BinarySearchTree()
 		self.assertEqual(None, bst.left)
 		self.assertEqual(None, bst.right)
-		self.assertEqual(None, bst.prev)
+		self.assertEqual(None, bst.parent)
 
 	"""
 	Insertion
@@ -83,6 +83,21 @@ class TestTree(unittest.TestCase):
 		self.assertEqual(large_child_2, large_child_1.right)
 		self.assertEqual(large_child_3, large_child_2.left)
 		self.assertEqual(equal_child, small_child_2.right)
+
+	def test_insertee_has_parent_matching_previous_node(self):
+		"""
+		When inserted, a node's parent value becomes the node before it.
+		"""
+		bst = BinarySearchTree(100)
+		child_1 = BinarySearchTree(20)
+		child_2 = BinarySearchTree(30)
+		child_3 = BinarySearchTree(10)
+		bst.insert(child_1)
+		bst.insert(child_2)
+		bst.insert(child_3)
+		self.assertEqual(bst, child_1.parent)
+		self.assertEqual(child_1, child_2.parent)
+		self.assertEqual(child_1, child_3.parent)
 
 	"""
 	Finding
