@@ -59,3 +59,9 @@ class BinarySearchTree():
 			values = self.right.traverse_post_order(values)
 		values.append(self.value)
 		return values
+
+	def delete(self, target_node):
+		if target_node.value < target_node.parent.value:
+			target_node.parent.left = None
+		else:
+			target_node.parent.right = None

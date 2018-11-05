@@ -220,5 +220,30 @@ class TestTree(unittest.TestCase):
 		bst.insert(large_child_3)
 		self.assertEqual([10, 30, 20, 120, 130, 110, 100], bst.traverse_post_order())
 
+	"""
+	Deletion
+	"""
+
+	def test_delete_leaf_node(self):
+		"""
+		Delete removes leaf nodes correctly.
+		"""
+		bst = BinarySearchTree(100)
+		small_child_1 = BinarySearchTree(20)
+		small_child_2 = BinarySearchTree(10)
+		large_child = BinarySearchTree(150)
+		equal_child = BinarySearchTree(100)
+		bst.insert(small_child_1)
+		bst.insert(small_child_2)
+		bst.insert(large_child)
+		bst.insert(equal_child)
+		bst.delete(small_child_2)
+		bst.delete(large_child)
+		bst.delete(equal_child)
+		self.assertEqual(small_child_1, bst.left)
+		self.assertEqual(None, small_child_1.left)
+		self.assertEqual(None, small_child_1.right)
+		self.assertEqual(None, bst.right)
+
 if __name__ == '__main__':
 	unittest.main()
