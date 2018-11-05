@@ -83,5 +83,16 @@ class TestTree(unittest.TestCase):
 		self.assertEqual(large_child_3, large_child_2.left)
 		self.assertEqual(equal_child, small_child_2.right)
 
+	"""
+	Finding
+	"""
+
+	def test_find_root_value_returns_root(self):
+		"""
+		Using find for root's value returns the root.
+		"""
+		bst = BinarySearchTree(100)
+		self.assertEqual(bst, bst.find(100))
+
 if __name__ == '__main__':
 	unittest.main()

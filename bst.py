@@ -17,3 +17,6 @@ class BinarySearchTree():
 				self.right = insertee
 			else:
 				self.right.insert(insertee)
+
+	def find(self, value):
+		return self
