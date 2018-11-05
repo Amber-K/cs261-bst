@@ -120,5 +120,20 @@ class TestTree(unittest.TestCase):
 		bst.insert(child_3)
 		self.assertEqual(child_2, bst.find(120))
 
+	def test_find_node_at_complex_location(self):
+		"""
+		Nodes can be found in complicated locations.
+		"""
+		bst = BinarySearchTree(100)
+		child_1 = BinarySearchTree(10)
+		child_2 = BinarySearchTree(130)
+		child_3 = BinarySearchTree(110)
+		child_4 = BinarySearchTree(120)
+		bst.insert(child_1)
+		bst.insert(child_2)
+		bst.insert(child_3)
+		bst.insert(child_4)
+		self.assertEqual(child_3, bst.find(110))
+		
 if __name__ == '__main__':
 	unittest.main()
