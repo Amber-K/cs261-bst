@@ -261,7 +261,51 @@ class TestTree(unittest.TestCase):
 		bst.delete(small_child)
 		bst.delete(large_child_1)
 		self.assertEqual(equal_child, bst.left)
+		self.assertEqual(bst, equal_child.parent)
 		self.assertEqual(large_child_2, bst.right)
+		self.assertEqual(bst, large_child_2.parent)
+
+	def test_delete_node_with_two_children(self):
+		"""
+		Delete removes nodes with two children correctly.
+		"""
+		bst = BinarySearchTree(100)
+		small_child_1 = BinarySearchTree(20)
+		small_child_2 = BinarySearchTree(10)
+		small_child_3 = BinarySearchTree(30)
+		large_child_1 = BinarySearchTree(120)
+		large_child_2 = BinarySearchTree(110)
+		large_child_3 = BinarySearchTree(130)
+		large_child_4 = BinarySearchTree(122)
+		large_child_5 = BinarySearchTree(123)
+		bst.insert(small_child_1)
+		bst.insert(small_child_2)
+		bst.insert(small_child_3)
+		bst.insert(large_child_1)
+		bst.insert(large_child_2)
+		bst.insert(large_child_3)
+		bst.insert(large_child_4)
+		bst.insert(large_child_5)
+		bst.delete(small_child_1)
+		bst.delete(large_child_1)
+		self.assertEqual(bst, small_child_3.parent)
+		self.assertEqual(small_child_3, bst.left)
+
+		self.assertEqual(small_child_3, small_child_2.parent)
+		self.assertEqual(small_child_2, small_child_3.left)
+		
+		self.assertEqual(bst, large_child_4.parent)
+		self.assertEqual(large_child_4, bst.right)
+
+		self.assertEqual(large_child_4, large_child_2.parent)
+		self.assertEqual(large_child_2, large_child_4.left)
+
+		self.assertEqual(large_child_4, large_child_3.parent)
+		self.assertEqual(large_child_3, large_child_4.right)
+
+		self.assertEqual(large_child_3, large_child_5.parent)
+		self.assertEqual(large_child_5, large_child_3.left)
+
 
 if __name__ == '__main__':
 	unittest.main()
