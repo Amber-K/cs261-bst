@@ -34,5 +34,18 @@ class TestTree(unittest.TestCase):
 		self.assertEqual(None, bst.left)
 		self.assertEqual(None, bst.right)
 
+	"""
+	Insertion
+	"""
+
+	def test_insert_smaller_values_as_left(self):
+		"""
+		Child nodes smaller than the root are inserted on the left.
+		"""
+		bst = BinarySearchTree(100)
+		child = BinarySearchTree(50)
+		bst.insert(child)
+		self.assertEqual(child, bst.left)
+
 if __name__ == '__main__':
 	unittest.main()
